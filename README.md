@@ -7,12 +7,12 @@
 
 Este repositório contém scripts e documentações (organizados em pastas) referentes aos conceitos abordados no 3° semestre do Curso Técnico de Redes de Computadores - SENAI de informática.
 
-**Conceitos estes:**
+**Alguns desses conceitos são:**
 
 * Cacti;
 * Zabbix;
 * Grafana;
-* Introdução Segurança;
+* Introdução aos conceitos de Segurança da Informação;
 * IPTables;
 * ASA;
 * PFSense;
