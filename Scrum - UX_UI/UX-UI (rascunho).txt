@@ -1,0 +1,19 @@
+﻿UX (Experiência de quem usa | Design centrado no usuário)
+
+    EM 1980 focamos em UTILIDADE
+    Em 1990 focamos em USABILIDADE (Dom Norman fala no termo UX pela primeira vez)
+    Em 2000 focamos em RENTABILIDADE
+    Em 2010 focamos em ESTRATÉGIA (Em 2011 foi criado a ISO 9241-210)
+
+    Qual a diferença entre cliente e usuário?
+
+        Cliente = solicita o software, por exemplo
+        Usuário = é de fato o utilizador
+
+    O que é UX?
+
+        User Experience, que significa Experiência do Usuário. É tudo que envolve o modo como qualquer usuário interage com o mundo ao seu 
+        redor. O que um usuário sente ao utilizar um produto, sistema ou serviço
+
+
+        
