@@ -211,13 +211,13 @@ IMPORTE O WindowsServer2008R2_DC
 
         NOTA: Não esqueça a etapa 4 (ela sera executada toda vez ao ligarmos esta máquina)
 
-    6) Após fechar a aba (mesma da etapa 6), uma mensagem referente ao novo disco aparecerá
+    9) Após fechar a aba (mesma da etapa 6), uma mensagem referente ao novo disco aparecerá
 
         - Clique na primeira opção que aparecerá
         - Siga a instalação normalmente (com 'next')
         - Confirme a opção de reboot
 
-    7) Vamos voltar a essa vm apenas para ativar as opções bi-direcionais
+    10) Vamos voltar a essa vm apenas para ativar as opções bi-direcionais
         
         Dispositivo > Área de Transferência Compartilhada > Bi-direcional
         Dispositivo > Arrastar e Soltar > Bi-direcional
@@ -226,4 +226,4 @@ IMPORTE O WindowsServer2008R2_DC
 
             Caso esteja, saia desse modo com: Ctrl (direito) + C
 
-    8) Pronto! Após isso, desligue a máquina.
+    11) Pronto! Após isso, desligue a máquina.
