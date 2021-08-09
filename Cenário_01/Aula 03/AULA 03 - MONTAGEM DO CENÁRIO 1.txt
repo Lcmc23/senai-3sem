@@ -1,0 +1,143 @@
+AULA 03 - MONTAGEM DO CENÁRIO 1 (2/08)
+
+    Vamos fazer a importação de duas das nossas MV base Linux 10, vamos chamá-las de: SRVFW-BERLIM e CLIXP-TOQUIO.
+
+    Como objetivo de trabalho para a aula de hoje vamos executar:
+
+        * Operação de máquinas virtuais;
+        * Modos de operação de interfaces de rede virtuais;
+        * Importância da configuração inicial;
+        * Instalações padrões;
+        * Acesso à Internet;
+        * Conceituação de grupo e usuários.
+
+PASSO A PASSO - IMPORTAÇÃO VMs
+
+1) Importe uma imagem de máquina no virtualbox
+    Arquivo > Importar > C:\VMs\OVAs > Debian 10.7 Base.ova
+
+        Clique em "Próximo"
+
+2) Altere o nome da máquina para "SRVFW-BERLIM"
+
+3) Desmarque a opção de placa de rede
+
+    Clique em "Importar"
+
+PASSO A PASSO - CONFIGURAÇÃO VMs
+
+    1) Troque as especificações de tela
+
+        - 128 MB de memória
+        - Controladora gráfica VMSVGA
+
+        - Desabilite o áudio
+
+        - Placa de rede
+            ADAPTADOR 1 (NAT)
+            ADAPTADOR 2 (Rede interna | REDE_INTERNA)
+
+ACESSO
+
+    User: root
+    Senha: Senai@132
+
+PASSO A PASSO TERMINAL
+
+    1) Digite 'ip a'
+
+        Veja que as placas de rede ainda não estão configuradas
+
+    2) Acesse 'nano /etc/network/interfaces'
+
+        - Edite as informações
+
+            # This file describes the network interfaces available in your systemctl
+            # and how to activate them. For more information, see interafaces(5).
+
+            source /etc/network/interfaces.d/*
+
+            # The loopback network interface
+            auto lo
+            auto lo inet loopback
+
+            # The primary network interface
+            auto enp0s3
+            iface enp0s3 inet dhcp
+
+            # The second network interface
+            auto enp0s8
+            iface enp0s8 inet static
+                address 172.31.0.254
+                network 255.255.255.0
+
+        - Salve o Arquivo
+        - de um cat no arquivo, para ver se de fato as configurações estão corretas
+
+    3) Reinicie o serviço de rede com 'systemctl restart networking.service'
+
+        Veja o status do serviço com 'systemctl status networking.service'
+
+        * Caso haja algum erro, acesse 'journalctl -xe'
+
+    4) Repita o comando "ip a"
+
+        Teste a conexão com um "apt update"
+
+    5) Atualize os pacotes com "apt update -y"
+
+    6) Altere o nome da máquina com "hostnamectl set-hostname SRVFW-BERLIM"
+
+    7) Compartilhe o acesso com a internet para toda nossa rede interna
+
+        INSTALE
+
+            apt install vim
+            apt install openssh-server -y
+
+        VERIFIQUE OS STATUS
+
+            systemctl status ssh.service
+
+----------------------------------------------------------------------------------
+
+IMPORTA UMA NOVA VM - WXPProSP3
+
+    Nome da máquina: CLIXP-TOQUIO
+    Desmarque a placa de rede
+
+    1) Habilite a placa de rede interna (REDE_INTERNA)
+
+        - Altere a resolução do monitor para 128MB
+        - Desabilite a opção de áudio
+
+    2) Logue no Servidor (Senha: Senai@132)
+
+    3) Altere as configurações da placa de rede com
+
+        Windows + R > ncpa.cpl
+
+        Parâmetros
+
+            - IP: 172.31.0.251
+            - Máscara: 255.255.255.0
+            - GW: 172.31.0.254
+
+            DNS: 8.8.8.8
+
+    4) Adicione um novo disco óptico ao Servidor
+
+        - Desligue a máquina
+        - Com a máquina selecionada > Configurações > Armazenamento > Adicionar novo disco óptico > Deixar vazio
+
+    5) Quando a máquina estiver inicializando (com a tela em modo normal e não em modo escalonado)
+
+        Clique em Dispositivo > Inserir imagem de CD...
+
+    6) No WinXP, acesse My Computer
+
+        Clique 2x em "VirtualBox Guest Additions"
+
+        - Siga a instalação normalmente (com 'next')
+        - Confirme a opção de reboot
+
