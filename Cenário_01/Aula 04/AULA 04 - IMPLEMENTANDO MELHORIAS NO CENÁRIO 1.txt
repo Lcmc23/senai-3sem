@@ -177,7 +177,7 @@ AULA 04 - IMPLEMENTANDO MELHORIAS NO CENÁRIO 1 (03/08)
 
         # The loopback network interface
         auto lo
-        auto lo inet loopback
+        iface lo inet loopback
 
         # The primary network interface
         auto enp0s3
