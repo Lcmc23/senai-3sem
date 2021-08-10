@@ -59,7 +59,7 @@ PASSO A PASSO TERMINAL
 
             # The loopback network interface
             auto lo
-            auto lo inet loopback
+            iface lo inet loopback
 
             # The primary network interface
             auto enp0s3
