@@ -4,44 +4,44 @@ PROBLEMA:
 
 OBJETIVO:
 
-PREMISSAS - T…CNICAS
+PREMISSAS - T√âCNICAS
 	- Rede:
-	- Realizar acÛpia (backup) de todo arquivo de configuraÁ„o a ser alterado
-	- Estado dos serviÁos que ser„o analisados
+	- Realizar a c√≥pia (backup) de todo arquivo de configura√ß√£o a ser alterado
+	- Estado dos servi√ßos que ser√£o analisados
 	- LOG de Sistema
 
-CEN¡RIO - PREPARA«√O DO AMBIENTE
+CEN√ÅRIO - PREPARA√á√ÉO DO AMBIENTE
 (MODELO OSI - 7 CAMADAS)
 
-	7 - APLICA«√O (APPLICATION) - Navegador / Apache2 / FTP
+	7 - APLICA√á√ÉO (APPLICATION) - Navegador / Apache2 / FTP
 
-	6 - APRESENTA«√O (PRESENTATION) - CodificaÁ„o
+	6 - APRESENTA√á√ÉO (PRESENTATION) - Codifica√ß√£o
 
-	5 - SESS√O (SESSION) - AutenticaÁ„o
+	5 - SESS√ÉO (SESSION) - Autentica√ß√£o
 
-	4 - TRANSPORTE (TRANSPORT) - TCP/UDP/ICMP | Divis„o da parte fÌsica para a parte lÛgica do serviÁo
+	4 - TRANSPORTE (TRANSPORT) - TCP/UDP/ICMP | Divis√£o da parte f√≠sica para a parte l√≥gica do servi√ßo
 
-	3 - REDE (NET) - ROTEADOR (DOMÕNIO DE 	BROADCAST) | Conectar redes diferentes | SegmentaÁ„o
+	3 - REDE (NET) - ROTEADOR (DOM√çNIO DE 	BROADCAST) | Conectar redes diferentes | Segmenta√ß√£o
 
-	2 - ENLACE (LINK LAYER/FRAME) | Enquadramento da informaÁ„o | OrganizaÁ„o de termos bin·rios (com comeÁo, meio e fim) - SWITCH (DOMÕNIO DE COLIS√O)
+	2 - ENLACE (LINK LAYER/FRAME) | Enquadramento da informa√ß√£o | Organiza√ß√£o de termos bin√°rios (com come√ßo, meio e fim) - SWITCH (DOM√çNIO DE COLIS√ÉO)
 
-	1 - FÕSICA (PHYSICAL) | Wireless, Cabo | Energia elÈtrica convertida em 0s e 1s (bin·rio) - HUB (REPETIDOR) / CONECTORIZA«’ES
+	1 - F√çSICA (PHYSICAL) | Wireless, Cabo | Energia el√©trica convertida em 0s e 1s (bin√°rio) - HUB (REPETIDOR) / CONECTORIZA√á√ïES
 
-FÕSICO (VirtualizaÁ„o - VirtualBox)
+F√çSICO (Virtualiza√ß√£o - VirtualBox)
 
-	* Import das m·quinas virtuais
-	* ConfiguraÁ„o das interfaces de rede (NIC)
-	* Conexıes de Switch
+	* Import das m√°quinas virtuais
+	* Configura√ß√£o das interfaces de rede (NIC)
+	* Conex√µes de Switch
 
-L”GICO (Sistema operacional)
+L√ìGICO (Sistema operacional)
 
-	* ConfiguraÁ„o base
+	* Configura√ß√£o base
 		Hostname
 		Interface(s) de rede
-		Usu·rio/Grupo
+		Usu√°rio/Grupo
 		Outra?
 
-	* ServiÁos
+	* Servi√ßos
 		ACESSO REMOTO
 		ROTEAMENTO/NAT
 		DNS
