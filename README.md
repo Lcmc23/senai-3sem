@@ -39,6 +39,9 @@ Este repositório contém scripts e documentações (organizados em pastas) refe
     <a href="https://ibb.co/ds9sGNX"><img src="https://i.ibb.co/8n3n6yG/Troubleshooting.png" alt="Troubleshooting" border="0"></a>
 </h1>  
 
+**Download das VMs já utilizadas neste semestre**
+    
+* https://drive.google.com/drive/folders/1WeSn9JFeWt2TIryZKvPJqJSg73haicE8
 
 **Plataforma utilizada para o desenvolvimento dos scripts e documentações:**
 
