@@ -31,8 +31,14 @@ Este repositório contém scripts e documentações (organizados em pastas) refe
     
 <h1>
     <h1 align="center">
-    <img src="https://lh3.googleusercontent.com/c770alPoRLy-K8Ql_QSfVWepY5Lnq7Acck2vgpMky6UelyfV5PBeF50zho4sSan_TSh7t6O8KszhPc4=w1349-h625" height="400" width="800">
+    <img src="https://lh3.googleusercontent.com/3C_wd5tgpX9dkfwdjBYVru8Q9i7ooyZaq1SasvmzgFjMxKH3kbx3hadiLzFIP8vF8uaRaWgi8TKLKWU=w1349-h625" height="400" width="800">
 </h1>  
+    
+<h1>
+    <h1 align="center">
+    <a href="https://ibb.co/ds9sGNX"><img src="https://i.ibb.co/8n3n6yG/Troubleshooting.png" alt="Troubleshooting" border="0"></a>
+</h1>  
+
 
 **Plataforma utilizada para o desenvolvimento dos scripts e documentações:**
 
