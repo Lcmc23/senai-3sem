@@ -1,0 +1,16 @@
+AULA 11 - TROUBLESHOOTING CENÁRIO 2 ROUTER E SWITCH (12/08)
+
+    1) Troubleshooting;
+    2) Wmbasamento técnico;
+    3) Tenha um roteiro/rotina;
+    4) Tenha uma documantação
+        Vá do mais simples (ligado/desligado; camada 1)
+
+        Ao mais complicado (servidores/serviços; ativos/switches/routers -> configuração)
+
+    Entregável
+
+        1) Criar evidências -> fotografias
+        2) Dar solução
+        3) Deixat o ambiente funcional
+
