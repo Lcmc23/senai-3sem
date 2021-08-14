@@ -31,7 +31,7 @@ Este repositório contém scripts e documentações (organizados em pastas) refe
     
 <h1>
     <h1 align="center">
-    <img src="https://lh3.googleusercontent.com/3C_wd5tgpX9dkfwdjBYVru8Q9i7ooyZaq1SasvmzgFjMxKH3kbx3hadiLzFIP8vF8uaRaWgi8TKLKWU=w1349-h625" height="400" width="800">
+    <img src="https://i.ibb.co/6bwGtMk/AULA-8-CENARIO-TROUBLESHOOTING-WINDOWS-A.png" height="400" width="800">
 </h1>  
     
 <h1>
