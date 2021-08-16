@@ -18,14 +18,14 @@ Este repositório contém scripts e documentações (organizados em pastas) refe
 * PFSense;
 * Introduction Cybersecurity.
 
-## Projetos de rede já desenvolvidos neste semestre
+## Projetos de rede já desenvolvidos
 
 <h1>
     <h1 align="center">
     <img src="https://raw.githubusercontent.com/Lcmc23/senai-3sem/main/Cen%C3%A1rio_01/Material%20de%20Apoio/REDE-pt2.png" height="400" width="800">
 </h1>
     
-## Troubleshooting já realizados neste semestre
+## Troubleshooting já realizados
     
 “O troubleshooting pode ser compreendido como uma espécie de diagrama de ações, um conjunto de medidas que orienta a resolução de problemas dentro do ambiente de TI. Em tradução, troubleshooting significa solução de problemas e é exatamente sobre isso que este conceito trata.”
     
@@ -39,7 +39,7 @@ Este repositório contém scripts e documentações (organizados em pastas) refe
     <a href="https://ibb.co/ds9sGNX"><img src="https://i.ibb.co/8n3n6yG/Troubleshooting.png" alt="Troubleshooting" border="0"></a>
 </h1>  
 
-**Download das VMs já utilizadas neste semestre**
+**VMs já utilizadas**
     
 * https://drive.google.com/drive/folders/1WeSn9JFeWt2TIryZKvPJqJSg73haicE8
 
