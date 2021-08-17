@@ -186,7 +186,7 @@ CLIXP-TOQUIO (Instalação do pacote SNMP)
 
 CLIXP-TOQUIO (Configuração do pacote SNMP)
 
-    30) Windows + R > service.msc 
+    30) Windows + R > services.msc 
 
     31) Encontre o serviço 'SNMP Service' > clique 2x > Stop 
 
