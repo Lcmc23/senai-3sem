@@ -195,7 +195,7 @@ CLIXP-TOQUIO (Configuração do pacote SNMP)
             AGENT
 
                 * Administrador.admin@projetos.win.br (Contact)
-                * So Paulo - Matriz (Location)
+                * Sao Paulo - Matriz (Location)
 
             TRAPS
             
@@ -211,6 +211,7 @@ CLIXP-TOQUIO (Configuração do pacote SNMP)
 
         * Descrição: CLIXP-TOQUIO
         * Hostname: 10.10.0.1
+	* Generic SNMP
 
         OBS: Caso de algum erro, desabilite o firewall do windows (Volte no cacti, de um f5)
 
