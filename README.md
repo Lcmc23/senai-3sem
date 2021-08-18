@@ -22,7 +22,7 @@ Este repositório contém scripts e documentações (organizados em pastas) refe
 
 <h1>
     <h1 align="center">
-    <img src="https://raw.githubusercontent.com/Lcmc23/senai-3sem/main/Cen%C3%A1rio_01/Material%20de%20Apoio/REDE-pt2.png" height="400" width="800">
+    <img src="https://github.com/Lcmc23/senai-3sem/blob/main/Sprint%20A/Cen%C3%A1rio_01/Material%20de%20Apoio/REDE-pt2.png" height="400" width="800">
 </h1>
     
 ## Troubleshooting já realizados
