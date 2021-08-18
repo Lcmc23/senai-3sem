@@ -39,6 +39,17 @@ Este repositório contém scripts e documentações (organizados em pastas) refe
     <a href="https://ibb.co/ds9sGNX"><img src="https://i.ibb.co/8n3n6yG/Troubleshooting.png" alt="Troubleshooting" border="0"></a>
 </h1>  
 
+## Monitoramento e Gerenciamento - protocolo SNMP
+    
+“SNMP é o protocolo padrão para monitoramento e gerenciamento de redes. A sigla SNMP é um acrônimo para 'Simple Network Management Protocol' (Protocolo Simples de gerenciamento de redes).”
+    
+**Cacti**
+    
+<h1>
+    <h1 align="center">
+    <img src="https://i.ibb.co/hKsK29q/Cacti.png" height="400" width="800">
+</h1>  
+    
 **VMs já utilizadas**
     
 * https://drive.google.com/drive/folders/1WeSn9JFeWt2TIryZKvPJqJSg73haicE8
