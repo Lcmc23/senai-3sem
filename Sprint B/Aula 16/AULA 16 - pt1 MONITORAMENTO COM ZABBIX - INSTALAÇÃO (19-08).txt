@@ -1,0 +1,90 @@
+AULA 16 - pt1 MONITORAMENTO COM ZABBIX - INSTALAÇÃO (19/08)
+
+#### ROTEIRO PARA INSTALAÇÃO DO SERVIDOR DE MONITORAMENTO - SRVMON-MOSCOU ####
+#### SRVMON-MOSCOU ####
+
+    PREMISSAS TÉCNICAS
+        Rede: 172.31.0.0/24
+        Cópia de segurança dos arquivos
+        Log
+            alt+f6]
+            #tail -f -n 1000 /var/log/syslog
+
+CENÁRIO - PREPARAÇÃO DO AMBIENTE
+    Host: 172.31.0.250/24
+
+FÍSICA (Virtualizador - VirtualBox)
+    Import. de máquina virtual
+        Debian 10.7 Base.ova
+    Configuração da interfaces de rede
+        Adaptador 1 - Rede Interna: Rede_SRV
+            Conectando ao switch Rede_SRV
+
+LÓGICA (Sistema Operacional)
+    Hostname
+        SRVMON-MOSCOU
+            #hostnamectl set-hostname SRMON-MOSCOU
+            #bash
+    Interface de rede
+        #ip a
+        #vim.tiny /etc/network/interfaces
+        enp0s3 -
+            auto enp0s3
+            iface enp0s3 inet static
+            address 172.31.0.250
+            netmask 255.255.255.0
+            gateway 172.31.0.254
+
+        RESTART DO SERVIÇO (exemplo)
+            #/etc/init.d/networking restart
+            #service networking restart
+            #systemctl restart networking.service
+
+        GARANTIR QUE O SO ACEITOU O GATEWAY
+            #ip route
+
+        TESTAR A COMUNICAÇÃO
+            ping para gateway
+            ping para internet IP
+
+        DNS (RESOLVER), APONTANDO PARA OS SERVIDORES DO NOSSO CENÁRIO
+            nameserver 172.31.0.253
+            name server 172.31.0.252
+
+        TESTAR O DNS RESOLVER
+            ping/nslookup para internet Nome
+
+    Configurações base
+        Atualizar a lista de pacotes de repositório
+            #apt update
+
+        Atualizar a distribuição
+            #apt upgrade
+
+        VIM (vim)
+            #apt install vim
+                Editar o programa
+                    #vim /etc/vim/vimrc
+                        Linha 26 - descomentar
+                        Linha 27 - criar set number
+
+        SSH (openssh-server)
+            #apt install openssh-server
+                Editar a configuração de acesso do SSH para permitir o ROOT
+                    #vim /etc/ssh/sshd_config
+                        Linha 32 - descomentei e alterei
+                            PermitRootLogin yes
+
+    Serviços específicos
+        Adicionar interface secundária para comunicação com o Windows
+            VirtualBox - ativar adaptador 2
+                Placa de rede exclusiva de hospedeiro (host-only)
+
+        Inteface do Linux
+            #vim /etc/network/interfaces
+                enp0s8
+                    auto enp0s8
+                    iface enp0s8
+                    dhcp
+        ZABBIX
+            zabbix.org

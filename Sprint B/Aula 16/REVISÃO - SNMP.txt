@@ -1,0 +1,46 @@
+REVISÃO
+
+Monitorar = visibilidade (de um ambiente gerenciado)
+
+    - Manutenção Proativa
+    - Manutenção Reativa
+
+    Algumas ferramentas de monitoramento:
+
+        * Dynatrace
+        * Nagios
+        * JFFNMS
+        * MRTG
+        * Cacti
+        * ZABBIX
+
+GERENTE --> Gerencia outros dispositivos em um ambiente
+AGENTES --> Aquele que é monitorado
+
+    Comunicação AGENTE <-- GERENTE = Pulling
+
+    Comunicação AGENTE --> GERENCIAMENTO = Trap
+
+SNMP (Simple Network Management Protocol) = UDP/161
+
+    HOST_A - SO - Memória - CPU - Disco - Consumo de Rede - Usuários logados
+    hOST_B - SO - Memória - CPU - Disco - Consumo de Rede - Usuários logados
+
+    Serviço = snmpd (d = daemon | background) = Gerente
+              snmp = Agente
+
+    MIB (Management Information Base) = base de informações 
+
+        * OID = Object Identifier (número único)
+
+    Funciona como uma árvore (modelo hierárquico)
+
+        * Padrão ISO
+
+    Comando - exemplo
+
+        * snmpwalk -c SALA02 -v 2c 192.168.132.100 | more
+
+    VULNERABILIDADES SNMP (em nosso cenário)
+
+        * SNMP está na comunidade "public"! Boots podem roubar e até mesmo alterar as informações de TODO o nosso ambiente
