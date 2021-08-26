@@ -1,0 +1,234 @@
+AULA 21 - GRAFANA - INSTALAÇÃO E CONFIGURAÇÃO (26/08)
+
+GRAFANA 
+    Gera gráficos através da base de dados provisionadas por ferramentas de monitoramento como Zabbix, Cacti, etc
+
+INSTALAÇÃO GRAFANA --> SRVMON-MOSCOU
+
+    1) wget -q -O - https://packages.grafana.com/gpg.key | apt-key add -
+    2) echo "deb https://packages.grafana.com/oss/deb stable main" | tee -a /etc/apt/sources.list.d/grafana.list
+    3) Atualizar os pacotes
+        apt update
+        apt upgrade
+    4) apt install grafana -y
+    5) systemctl daemon-reload
+    6) systemctl enable grafana-server
+    7) systemctl start grafana-server
+        systemctl status grafana-server
+    8) ss -ntpl | grep grafana (usa porta 3000)
+    9) grafana-cli plugins install alexanderzobnin-zabbix-app
+    10) systemctl restart grafana-server
+
+--------------------------------------------
+
+ABRA UMA NOVA ABA EM SEU CLIWIN7 OU WIN10
+
+    1) 172.31.0.250:3000
+        Usuário: admin
+        Senha: admin
+
+        NOTA: Defina sua senha (New password)
+
+--------------------------------------------
+
+GRAFANA
+
+    1) Vá em Configurações (lado esq da tela) > Plugins > Zabbix > enable
+    2) Vá em Configurações > Data Source > Add data source > Zabbix
+        Settings
+            URL: http://172.31.0.250/zabbix/api_jsonrpc.php
+            Username: Admin
+            Password: zabbix
+        Save & test --> "Zabbix API Version 5.0.14"
+    3) Logut no Grafana --> Clique sobre o ícone acima do botão de ajuda > Sign Out
+
+--------------------------------------------
+
+DASHBOARD1
+
+    1) + > Create > DASHBOARD
+        Salve com o nome --> CONTROLE DE DISCO
+
+    2) Add panel > add panel (vazio)
+
+    3) Query
+
+        * Zabbix
+        * Metrics
+        * Zabbix servers --> SRVMON-MOSCOU
+        * Filesystem/ --> Total space
+
+    4) Time Series > Pie chart
+
+        Title --> SRMON-MOSCOU
+        Standard Options
+            Unit --> Data / bytes(SI)
+
+    5) Duplicate Query
+        Espaço total (A) e Espaço utilizado (B)
+            Filesystem/ --> used space
+
+    6) Save > Save dashboard > Espaço em disco no SRVMON-MOSCOU > Aply
+
+*******************
+
+    2) Add panel > add panel (vazio)
+
+    3) Query
+
+        * Zabbix
+        * Metrics
+        * LINUX servers --> SRVFW-BERLIM
+        * Filesystem/ --> Total space
+
+    4) Time Series > Pie chart
+
+        Title --> SRFW-BERLIM
+        Standard Options
+            Unit --> Data / bytes(SI)
+
+    5) Duplicate Query
+        Espaço total (A) e Espaço utilizado (B)
+            Filesystem/ --> used space
+
+    6) Save > Save dashboard > Espaço em disco no SRVFW-BERLIM > Aply
+
+*******************
+
+    2) Add panel > add panel (vazio)
+
+    3) Query
+
+        * Zabbix
+        * Metrics
+        * Linux servers --> SRVMON-HELSINQUE
+        * Filesystem/ --> Total space
+
+    4) Time Series > Pie chart
+
+        Title --> SRMON-HELSINQUE
+        Standard Options
+            Unit --> Data / bytes(SI)
+
+    5) Duplicate Query
+        Espaço total (A) e Espaço utilizado (B)
+            Filesystem/ --> used space
+
+    6) Save > Save dashboard > Espaço em disco no SRVMON-HELSINQUE > Aply
+
+>SAVE DASHBOARD<
+
+--------------------------------------------
+
+DASHBOARD2
+
+    1) + > Create > DASHBOARD
+        Salve com o nome --> CONTROLE TRÁFEGO - BERLIM
+
+    2) Add panel > add panel (vazio)
+
+    3) Query PLACA DE REDE INTERNET
+
+        * Zabbix
+        * Metrics
+        * Linux servers --> SRVFW-BERLIM
+        * interface enp0s3 --> enp0s3 bits sent
+
+    4) Time Series
+
+        Title --> SRFW-BERLIM
+        Standard Options
+            Unit --> bits/sec
+
+    5) Duplicate Query
+        INTERFACE-OUT (A) e INTERFACE-IN (B)
+            interface enp0s3 --> bits received
+
+*******************
+
+    2) Add panel > add panel (vazio)
+
+    3) Query REDE-INTERNA
+
+        * Zabbix
+        * Metrics
+        * Linux servers --> SRVFW-BERLIM
+        * interface enp0s8 --> enp0s3 bits received
+
+    4) Time Series
+
+        Title --> SRFW-BERLIM
+        Standard Options
+            Unit --> bits/sec
+
+    5) Duplicate Query
+        REDE_INTERNA-OUT (A) e REDE_INTERNA-IN (B)
+            interface enp0s8 --> bits sent
+
+*******************
+
+    2) Add panel > add panel (vazio)
+
+    3) Query REDE-SRV
+
+        * Zabbix
+        * Metrics
+        * Linux servers --> SRVFW-BERLIM
+        * interface enp0s9 --> enp0s3 bits received
+
+    4) Time Series
+
+        Title --> SRFW-BERLIM
+        Standard Options
+            Unit --> bits/sec
+
+    5) Duplicate Query
+        REDE_SRV-OUT (A) e REDE_SRV-IN (B)
+            interface enp0s9 --> bits sent
+
+--------------------------------------------
+
+DASHBOARD3
+
+    1) + > Create > DASHBOARD
+        Salve com o nome --> CONTROLE DE MEMÓRIA
+
+    2) Add panel > add panel (vazio)
+
+    3) Query PLACA DE REDE INTERNET
+
+        * Zabbix
+        * Metrics
+        * templates/Operation System --> SRVDC-NAIROBI
+        * Memory --> Total Memory
+
+    4) Pie Chart
+
+        Title --> SRDC-NAIROBI
+        Standard Options
+            Unit --> bytes(SI)
+
+    5) Duplicate Query
+        MEMÓRIA TOTAL (A) e MEMÓRIA USADA (B)
+            Memory --> Used Memory
+
+*******************
+
+    2) Add panel > add panel (vazio)
+
+    3) Query PLACA DE REDE INTERNET
+
+        * Zabbix
+        * Metrics
+        * templates/Operation System --> WIN7CLI-TOQUIO
+        * Memory --> Total Memory
+
+    4) Pie Chart
+
+        Title --> WIN7CLI-TOQUIO
+        Standard Options
+            Unit --> bytes(SI)
+
+    5) Duplicate Query
+        MEMÓRIA TOTAL (A) e MEMÓRIA USADA (B)
+            Memory --> Used Memory
