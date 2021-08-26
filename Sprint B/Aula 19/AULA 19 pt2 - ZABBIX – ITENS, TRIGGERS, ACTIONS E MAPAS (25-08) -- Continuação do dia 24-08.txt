@@ -395,3 +395,8 @@ TESTE ESSA AUTOMAÇÃO
 
     3) No Zabbix, aparecerá a mensagem que o serviço parou
         * É nesse momento que nossa automação resolverá este problema
+        
+CURIOSIDADE
+
+    * https://techexpert.tips/pt-br/zabbix-pt-br/zabbix-monitorar-arquivo-de-log-no-linux/
+    * https://www.zabbix.com/documentation/current/pt/manual/config/items/itemtypes/log_items
