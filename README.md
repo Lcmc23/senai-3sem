@@ -47,8 +47,22 @@ Este repositório contém scripts e documentações (organizados em pastas) refe
     
 <h1>
     <h1 align="center">
-    <img src="https://i.ibb.co/hKsK29q/Cacti.png" height="400" width="800">
-</h1>  
+    <img src="https://i.ibb.co/hKsK29q/Cacti.png">
+</h1>
+    
+**Zabbix**
+    
+<h1>
+    <h1 align="center">
+    <img src="https://i.ibb.co/v1qZNtH/Zabbix.png">
+</h1>
+    
+**Grafana**
+    
+<h1>
+    <h1 align="center">
+    <img src="https://i.ibb.co/9tmpZZL/Grafana.png">
+</h1> 
     
 **VMs já utilizadas**
     
