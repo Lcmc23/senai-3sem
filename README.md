@@ -64,6 +64,25 @@ Este repositório contém scripts e documentações (organizados em pastas) refe
     <img src="https://i.ibb.co/9tmpZZL/Grafana.png">
 </h1> 
     
+## Segurança Cibernética - IPtables
+    
+* Funciona através da comparação de regras para saber se um pacote tem ou não permissão para passar;
+
+* Em firewalls mais restritivos, o pacote é bloqueado e registrado para que o administrador do sistema tenha conhecimento sobre o que está acontecendo em seu ambiente;
+    
+* Por intermédio de regras, fazemos com que pacotes possam ou não serem recebidos por toda uma rede, somente uma máquina, uma interface ou até mesmo uma porta de comunicação;
+
+* As regras do iptables são compostas de uma Tabela, Opção, Chain, Dados e Ação. Através destes elementos, podemos especificar o que fazer com os pacotes, seguindo a estrutura:
+
+```
+iptables [-t tabela] [opção] [chain] [dados] -j [ação]
+```
+    
+<h1>
+    <h1 align="center">
+    <img src="https://miro.medium.com/max/1000/1*OIoNQkH4RTSm-eY2lUMBcQ.jpeg">
+</h1> 
+    
 **VMs já utilizadas**
     
 * https://drive.google.com/drive/folders/1WeSn9JFeWt2TIryZKvPJqJSg73haicE8
