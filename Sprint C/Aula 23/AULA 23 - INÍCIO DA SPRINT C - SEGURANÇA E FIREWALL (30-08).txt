@@ -1,0 +1,83 @@
+AULA 23 - INÍCIO DA SPRINT C - SEGURANÇA E FIREWALL (30/08)
+
+Introdução à Segurança da Informação
+
+    Segurança da informação está relacionada com proteção de um conjunto de dados, no sentido de preservar o valor que possuem para um 
+    indivíduo ou uma organização.
+
+Por que precisamos de segurança?
+
+    * Evolução da tecnologia focando a facilidade de uso;
+    * Aumento do uso de redes e interligação das aplicações;
+    * Diminuição do nível de conhecimento para a execução de um ataque avançado;
+    * Aumento da complexidade para administração de infraestrutura de computadores e gerenciamento.
+
+Princípios básicos de segurança da informação
+
+    Confidencialidade -> propriedade que limita o acesso a informação tão-somente às entidades legítimas, ou seja, àquelas autorizadas
+    pelo proprietário da informação.
+
+    Integridade -> propriedade que garante que a informação manipulada mantenha todas as características originais estabelecidas pelo 
+    proprietário da informação
+
+    Disponibilidade -> propriedade que garante que a informação esteja sempre disponível para o uso legítimo
+
+    Autenticidade -> garantia da origem da informação
+
+    Legalidade -> importante estarmos atentos as leis de cada país
+
+Ameaças 
+
+    Físicas
+        - Desabamento
+        - Raio
+        - Alagamento
+        - Acesso indevido de pessoas
+
+    Lógicas
+        - infecção por vírus
+        - Acessos remoto à rede
+        - Violação de senhas
+
+Ataques
+
+    Interno (70% dos ataques)
+        - Funcionários insatisfeitos
+        - Funcionários despreparados
+        - Espionagem
+
+    Externo
+        - Crackers
+        - Concorrentes
+        - Espionagem
+
+Mecanismos de segurança
+
+    Controles Físicos
+        - Portas
+        - Trancas
+        - Paredes
+        - Blindagens
+        - Entre outros
+
+    Controles Lógicos
+        - Criptografia
+        - Firewall
+        - Anti DDoS
+        - Entre outros
+
+Serviços de segurança
+
+    * Criação de Políticas de Segurança;
+    * Hardening de Servidores;
+    * Análise de Vulnerabilidade;
+    * Teste de invasão;
+    * Análise de Aplicação;
+    * Perícia Computacional;
+    * Treinamento de Colaboradores;
+    * Auditoria.
+
+> Padrões e Normas <
+> Network Security Organizations < 
+> Certificações <
+> CyberThreat Realtime <
