@@ -229,7 +229,8 @@ SOLUÇÃO
     iptables -A INPUT -p tcp --sport 22 -j ACCEPT
 
         > Faça o teste com: ssh aluno@172.31.0.254
-        > telnet: telnet 22 [ip-do-srvfw-berlim]
+        > telnet: telnet 172.31.0.254 22
+            Para testar instale o telnet, instale seu módulo
 
     ## LIBERAR ICMP PARA TODA CENÁRIO
     iptables -A INPUT -p icmp -j ACCEPT
