@@ -90,4 +90,12 @@ iptables [-t tabela] [opção] [chain] [dados] -j [ação]
 **Plataforma utilizada para o desenvolvimento dos scripts e documentações:**
 
 * VisualStudio - https://visualstudio.microsoft.com/pt-br/
+    
+## Cursos realizados neste semestre
+
+Site | Curso
+---- | -----
+[SENAI - EAD](https://ead.sp.senai.br/) | Competências Socioemocionais (Soft Skills)
+[SENAI - EAD](https://ead.sp.senai.br/) | Desvendando a Indústria 4.0
+[SENAI - EAD](https://ead.sp.senai.br/) | Desvendando a Blockchain
    
