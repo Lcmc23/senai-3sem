@@ -12,7 +12,7 @@ SOLUÇÃO
 
     > ## REJEITAR ICMP DO CLIENTE PARA SRVWEB-DENVER, GERANDO LOG QUANDO ACIONADO
     iptables -A FORWARD -s 10.10.0.1 -d 172.31.0.253 -p icmp -j REJECT
-    iptables -A FORWARD -s 10.10.0.1 -d 172.31.0.253 -p icmp -j LOG --log-prefix "Tentativa de frustrada de log
+    iptables -A FORWARD -s 10.10.0.1 -d 172.31.0.253 -p icmp -j LOG --log-prefix "Tentativa de frustrada de LOG"    
 
         * Lembre: Mais restritivo primeiro!
 
