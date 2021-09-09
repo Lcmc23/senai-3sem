@@ -1,0 +1,243 @@
+﻿Continuação -> Aula do dia 30/08
+
+LINKS - CURIOSIDADES
+    https://cybermap.kaspersky.com/
+    https://www.digitalattackmap.com/
+
+NOTA: Por padrão, as configurações do IPtables são gravados na memória RAM (logo, o mesmo é apagado quando a máquina é encerrada)
+    - Por isso, o arquivo "./firewall.sh" foi criado
+    - Por isso, nossos comandos IPtables não foram gravados 
+
+#### Comandos ####
+
+    #iptables -L
+        Listar conteúdo da tabela filter
+
+    #iptables -L -v
+        Lista com maiores informações -> nomeia
+
+    #iptables -L -v -n (-nv)
+        Lista com maiores informações -> apenas por IP
+
+    #iptables -L -nv --line-numbers
+        Lista com maiores informações -> numerando as linhas
+
+    #iptables -D [INPUT-OUTPUT-FORWARD] [número-da-linha]
+        Apagar uma determinada linha
+
+---------------------------
+
+CRIAÇÃO DO SCRIPT - FIREWALL
+
+SRVFW-BERLIM
+
+    1) Crie um arquivo vazio -> onde adicionaremos todas as declarações de políticas e regras internamente
+        touch firewall
+
+    2) Edite-o
+
+        #!/bin/bash
+        ## DECLARAÇÃO DE POLÍTCA RESTRITIVA
+        iptables -P INPUT DROP
+        iptables -P OUTPUT DROP
+        iptables -P FORWARD
+
+    3) Tornar o arquivo executável
+        chmod +x firewall
+
+    4) Execute-o e veja se o mesmo está funcionando
+        ./firewall
+        iptables -L
+
+    5) Crie uma exceção para o CLI7WIN-TOQUIO (no arquivo "firewall")
+
+        #!/bin/bash
+        ## DECLARAÇÃO DE POLÍTCA RESTRITIVA
+        iptables -P INPUT DROP
+        iptables -P OUTPUT DROP
+        iptables -P FORWARD
+
+        ## LIBERAR O ACESSO DO CLIENTE TÓQUIO
+        iptables -A INPUT -s 10.10.0.1 -j ACCEPT
+        iptables -A OUTPUT -d 10.10.0.1 -j ACCEPT
+        iptables -A FORWARD -s 10.10.0.1 -j ACCEPT
+        iptables -A FORWARD -d 10.10.0.1 -j ACCEPT
+
+            Execute o comando novamente -> ./firewall
+            Veja como está o iptables -> iptables -L
+
+            Faça o teste -> do cliente, pingue o DENVER (exemplo)
+
+NOTA: Caso a condição não seja condizente com nenhuma regra do mecanismo, a política quem determinará se o pacote será dropado ou aceito -> POLÍTICA MANDATÓRIA
+
+    7) Apagar linhas (regras) repetidas no INPUT
+        #iptables -D INPUT 2
+
+-----------------------------------------------
+
+MELHORIAS DE NOSSO SCRIPT
+
+    8) Volte novamente no arquivo "firewall"
+
+        #!/bin/bash
+        ## DECLARAÇÃO DE POLÍTCA RESTRITIVA
+        iptables -P INPUT DROP
+        iptables -P OUTPUT DROP
+        iptables -P FORWARD
+
+        ## LIMPAR AS CHAINS DA TABELA FILTER
+        iptables -F
+
+        ## LIBERAR O ACESSO DO CLIENTE TÓQUIO
+        iptables -A INPUT -s 10.10.0.1 -j ACCEPT
+        iptables -A OUTPUT -d 10.10.0.1 -j ACCEPT
+        iptables -A FORWARD -s 10.10.0.1 -j ACCEPT
+        iptables -A FORWARD -d 10.10.0.1 -j ACCEPT  
+
+        ## LISTAR A CONFIGURAÇÃO ATUAL
+        clear 
+        iptables -L -nv --line-numbers          
+        
+            Execute o comando novamente -> ./firewall
+
+-----------------------------------------------
+
+LIMPAR TODAS AS CONDIÇÕES - LIMPAR FIREWALL (BOTÃO DE "PANICO")
+
+    9) Crie um arquivo vazio
+        touch panico
+
+    10) Torne-o executável
+        chmod +x panico
+
+    11) Edite o arquivo
+
+        #!/bin/bash
+
+        ## DECLARAR A POLÍTICA PADRÃO PERMISSIVA
+        iptables -P INPUT ACCEPT
+        iptables -P OUTPUT ACCEPT
+        iptables -P FORWARD ACCEPT
+
+        ## LIMPAR AS CHAINS DA TABELA FILTER
+        iptables -F
+
+        ## LIMPAR A CONSOLE E MOSTRAR CONFIGURAÇÃO ATUAL
+        clear
+        iptables -L -nv
+
+-----------------------------------------------
+
+NOTA: O próprio loopback (localhost) é bloqueado na política restritiva
+
+-----------------------------------------------
+
+LIBERAR O LOCALHOST (no arquivo firewall)
+
+    12) #!/bin/bash
+        ## DECLARAÇÃO DE POLÍTCA RESTRITIVA
+        iptables -P INPUT DROP
+        iptables -P OUTPUT DROP
+        iptables -P FORWARD
+
+        ## LIMPAR AS CHAINS DA TABELA FILTER
+        iptables -F
+
+        ## LIBERAR O LOCALHOST
+        #### Baseado por IP - 127.0.0.1
+        iptables -A INPUT -s 127.0.0.1 -j ACCEPT
+        iptables -A OUTPUT -d 127.0.0.1i -j ACCEPT
+
+        #### Baseado por interface - lo
+        iptables -A INPUT -i 127.0.0.1 -j ACCEPT
+        iptables -A OUTPUT -o 127.0.0.1i -j ACCEPT
+
+        ## LIBERAR O ACESSO DO CLIENTE TÓQUIO
+        iptables -A INPUT -s 10.10.0.1 -j ACCEPT
+        iptables -A OUTPUT -d 10.10.0.1 -j ACCEPT
+        iptables -A FORWARD -s 10.10.0.1 -j ACCEPT
+        iptables -A FORWARD -d 10.10.0.1 -j ACCEPT  
+
+        ## LISTAR A CONFIGURAÇÃO ATUAL
+        clear 
+        iptables -L -nv --line-numbers
+
+-----------------------------------------------
+
+REINICIE A MÁQUINA
+
+    13) init 6
+        Veja que as configurações de firewall foram apagadas
+
+-----------------------------------------------
+
+AUTOMAÇÃO DO SCRIPT -> Executado na inicialização do Sistema
+
+    NOTA:
+
+        No seu ./firewall
+
+            #!/bin/bash
+            ### BEGIN INIT INFO
+            # Default-Start:    2 3 4 5
+            ### END INIT INFO
+    
+    14) Navegue até cd /etc/systemd/system
+
+    15) Crie o arquivo vazio
+        #touch firewall.service
+
+    16) Edite-o
+
+        [Unit]
+        Description=Firewall
+
+        [Service]
+        Type=forking
+        ExecStart=/etc/init.d/firewall start
+
+        [Install]
+        WantedBy=multi-user.target
+
+    17) Volte no caminho anterior em que você estava (em nosso caso o Root)
+        #cd -
+
+    18) Vá até o diretório "/" e mova o arquivo "firewall"
+        #cd /
+        #mv /root/firewall /etc/init.d/
+
+    19) Habilite o arquivo com
+        systemctl enable firewall.service
+
+-----------------------------------------------
+
+ARQUIVO DE FIREWALL
+
+    20) Está em /etc/init.d
+
+-----------------------------------------------
+
+DESAFIO
+
+    * LIBERAR O ACESSO SSH DO FIREWALL
+    * LIBERAR O ICMP PARA TODA REDE
+
+SOLUÇÃO
+    
+    ## LIBERAR SSH DO FIREWALL
+    iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+    iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
+
+        > Faça o teste com: ssh aluno@172.31.0.254
+        > telnet: telnet 172.31.0.254 22
+
+		Para testar instale o telnet, instale seu módulo
+
+    ## LIBERAR ICMP PARA TODA CENÁRIO
+    iptables -A INPUT -p icmp -j ACCEPT
+    iptables -A OUTPUT -p icmp -j ACCEPT
+    iptables -A FORWARD -p icmp -j ACCEPT
+
+        > Chame o ./firewall.sh
+        > Teste o ping em todo o nosso cenário
+

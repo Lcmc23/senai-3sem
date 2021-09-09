@@ -1,0 +1,56 @@
+ENTREGÁVEL - 2 - SCRIPT
+
+    #!/bin/bash
+    ### BEGIN INIT INFO
+    # Default-Start:        2 3 4 5
+    ### END INIT INFO
+
+    ## POLÍTCA PADRÃO - RESTRITIVA
+    iptables -P INPUT DROP
+    iptables -P OUTPUT DROP
+    iptables -P FORWARD DROP
+
+    ## LIMPAR AS REGRAS DAS CHAINS DA TABELA FILTER E NAT
+    iptables -F
+    iptables -t nat -F
+
+    # HABILITAR ROTEAMENTO
+    echo 1 > /proc/sys/net/ipv4/ip_forward
+    # HABILITAR FUNCAO DE NAT
+    iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE
+
+    #### STATEFUL ####
+    iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+    iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+    iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+    #### LIBERAR LOCALHOST
+    iptables -A INPUT -i lo -j ACCEPT
+
+    ## REJEITAR ICMP DO CLIENTE PARA SRVFW-BERLIM, GERANDO LOG QUANDO ACIONADO
+    iptables -A FORWARD -s 10.10.0.1 -d 172.31.0.254 -p icmp -j LOG --log-prefix "CLI7WIN-TOQUIO realizou teste de ping neste servidor, estado: permissão negada"
+    iptables -A FORWARD -s 10.10.0.1 -d 172.31.0.254 -p icmp -j REJECT
+
+    ## LIBERAR ACESSO A INTERNET (NAVEGACAO): EXCETO SRVWEB-DENVER
+    iptables -A FORWARD ! -s 172.31.0.253 -p tcp -m multiport --dport 80,443 -j ACCEPT
+
+    ## LIBERAR ICMP PARA TODA NOSSA REDE
+    iptables -A INPUT -p icmp -j ACCEPT
+    iptables -A OUTPUT -p icmp -j ACCEPT
+    iptables -A FORWARD -p icmp -j ACCEPT
+
+    ## LIBERAR PROTOCOLO DNS (PARA RESOLUÇÃO DE NOMES)
+    iptables -A FORWARD -p udp --dport 53 -j ACCEPT
+    iptables -A OUTPUT -p udp --dport 53 -j ACCEPT
+
+    ## LIBERAR REPOSITORIO BRASILEIRO DO DEBIAN (LINUX)
+    iptables -A OUTPUT -d mirror.unesp.br -j ACCEPT
+    #iptables -A OUTPUT -d debian.pop-sc.rnp.br -j ACCEPT
+    #iptables -A OUTPUT -d debian.itsbrasil.net -j ACCEPT
+    iptables -A FORWARD -d mirror.unesp.br -j ACCEPT
+    #iptables -A FORWARD -d debian.pop-sc.rnp.br -j ACCEPT
+    #iptables -A FORWARD -d debian.itsbrasil.net -j ACCEPT
+    
+    ## LISTAR A CONFIGURAÇÃO ATUAL
+    clear
+    iptables -L -nv --line-numbers
