@@ -1,0 +1,88 @@
+CONTINUAÇÃO -- FIREWALL - ASA (CISCO) - 15/09
+
+PADRÃO DE CONEXÃO - CISCO
+
+    Putty > Connection > SSH > Serial
+    9600 - 8 - 1 - n - n
+
+-------------------------------------------------
+
+PARÂMETROS
+
+    * User mode - (>)
+    * "Admin" Cisco - modo privilegiado (#)
+
+    - ? (lista os comandos disponíveis)
+    
+    - show version (versão do equipamento)
+        Ext: Management1/1 = porta de gerenciamento
+        Licensed features for this platform = informações de licença
+        Configuration has not been modified since last system restart = quais alterações eu fiz no sistema
+    
+    - sh run = mostra as configurações do equipamento
+
+    - sh flash
+        asdm-761.bin = arquivo necessário para executarmos a interface gráfica
+
+    - sh int ip brief = informações das interfaces bem como seus IPs
+
+-------------------------------------------------
+
+HABILITAR INTERFACE GRÁFICA - EXEMPLO
+
+1) Informar o caminho do sistema gráfico - ASDM
+2) Habilitar o servidor HTTP do ASA
+3) Permitir qual rede terá acesso ao serviço HTTP do Cisco ASA
+
+    Nota: O dispositivo que fará o gerenciamento do equipamento deve estar na mesma rede do firewall
+    OBS: comando (no cmd) -> 'arp -a', nos mostra a os IPs e seus endereços MAC
+
+# Configuração básica
+en
+conf t
+int g1/1
+ip add 10.10.0.6 255.255.255.248
+nameif inside
+no sh
+
+# Informar o caminho do sistema gráfico - ASDM
+asdm image flash:/asdm-761.bin
+
+# Habilitar o servidor HTTP do ASA
+http server enable
+
+# Permitir qual rede terá acesso ao serviço HTTP do Cisco ASA
+http 10.10.0.0 255.255.255.248 inside
+
+-------------------------------------------------
+
+TESTE
+
+    No navegador, digite http://10.10.0.6
+
+-------------------------------------------------
+
+INSTALAÇÃO
+
+    Nota: Após acessar a URL na etapa "TESTE"
+
+    1) Não temos usuário e senha, então clique apenas em 'entrar'
+    2) Install ASDM Laucher (arquivo de aproximadamente 700KB)
+    3) Após o download, instale o ASDM Launcher
+    4) No caminho C:\Program FIles (x86)\Cisco Systems\ASDM
+    5) Envie o arquivo asdm-launcher.jar para a área de trabalho (como atalho)
+
+-------------------------------------------------
+
+Cisco ASDM-IDM Launcher
+
+    IP: 10.10.0.6 > OK
+
+-------------------------------------------------
+
+INTERFACE GRÁFICA
+
+    * Ao fazermos as alterações na interface gráfica, devemos aplicar (apply) as configurações e salvá-las (save), para que tais alterações 
+    sejam aplicadas na linha de comando do ciscoasa
+
+    * Assim como no AD, podemos definir objetos
