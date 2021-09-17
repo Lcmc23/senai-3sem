@@ -107,6 +107,30 @@ nat;
 route.
 ```
     
+## pfSense
+    
+<h1>
+    <h1 align="center">
+    <img src="https://conexti.com.br/wp-content/uploads/2021/01/pfsense_logo.png">
+</h1>
+    
+<h1>
+    <h1 align="center">
+    <img src="https://fabiosilvabuzina.files.wordpress.com/2016/04/46185-8.png" height="" width="">
+</h1>
+    
+O pfSense é open source, licenciado sob BSD license, baseado no sistema operacional FreeBSD e adaptado para assumir o papel de um firewall e/ou roteador de redes. O nome deriva do fato que o software utiliza a tecnologia packet-filtering.
+    
+Na linguagem dos especialistas em Segurança da Informação, a disponibilização dos pacotes para as mais diversas funções credencia o pfSense como um UTM (Unified Threat Management, ou Central Unificada de Gerenciamento de Ameaças, em português), que, em breves palavras, pode ser entendido por um dispositivo com diversas funções, tais como:
+
+* firewall;
+* servidor (internet, DHCP, NTP, Proxy…);
+* antivírus;
+* antispyware;
+* antispam;
+* filtragem de conteúdo;
+* detecção de intrusão, entre outros.
+    
 **VMs já utilizadas**
     
 * https://drive.google.com/drive/folders/1WeSn9JFeWt2TIryZKvPJqJSg73haicE8
