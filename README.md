@@ -116,7 +116,7 @@ route.
     
 <h1>
     <h1 align="center">
-    <img src="https://fabiosilvabuzina.files.wordpress.com/2016/04/46185-8.png" height="" width="">
+    <img src="https://fabiosilvabuzina.files.wordpress.com/2016/04/46185-8.png">
 </h1>
     
 O pfSense é open source, licenciado sob BSD license, baseado no sistema operacional FreeBSD e adaptado para assumir o papel de um firewall e/ou roteador de redes. O nome deriva do fato que o software utiliza a tecnologia packet-filtering.
@@ -131,13 +131,50 @@ Na linguagem dos especialistas em Segurança da Informação, a disponibilizaç�
 * filtragem de conteúdo;
 * detecção de intrusão, entre outros.
     
-**VMs já utilizadas**
+## Docker
     
-* https://drive.google.com/drive/folders/1WeSn9JFeWt2TIryZKvPJqJSg73haicE8
+<h1>
+    <h1 align="center">
+    <img src="https://programadev.com.br/static/5ef27418358e0041cd02966fc3e74e55/docker.png" height="400" width="800">
+</h1>
+    
+**O que é arquitetura de microsserviços?**
+    
+Os microsserviços são uma arquitetura e uma abordagem para escrever programas de software. Com eles, as aplicações são desmembradas em componentes mínimos e independentes. Diferentemente da abordagem tradicional monolítica em que toda a aplicação é criada como um único bloco, os microsserviços são componentes separados que trabalham juntos para realizar as mesmas tarefas. Cada um dos componentes ou processos é um microsserviço. Essa abordagem de desenvolvimento de software valoriza a granularidade, a leveza e a capacidade de compartilhar processos semelhantes entre várias aplicações. Trata-se de um componente indispensável para a otimização do desenvolvimento de aplicações para um modelo nativo em nuvem.
+    
+**O que é Docker?**
+    
+Docker se refere a muitas coisas. Isso inclui: um projeto da comunidade open source; as ferramentas resultantes desse projeto; a empresa Docker Inc., principal apoiadora do projeto; e as ferramentas compatíveis formalmente com a empresa. O fato de que as tecnologias e a empresa têm o mesmo nome pode causar uma certa confusão.
 
-**Plataforma utilizada para o desenvolvimento dos scripts e documentações:**
+Veja uma simples explicação:
 
-* VisualStudio - https://visualstudio.microsoft.com/pt-br/
+* O software de TI "Docker" é uma tecnologia de containerização para criação e uso de containers Linux®.
+* A comunidade open source do Docker trabalha gratuitamente para melhorar essas tecnologias para todos os usuários.
+* A empresa Docker Inc. se baseia no trabalho realizado pela comunidade do Docker, tornando-o mais seguro, e compartilha os avanços com a comunidade em geral. Depois, ela oferece aos clientes corporativos o suporte necessário para as tecnologias que foram aprimoradas e fortalecidas.
+    
+**Como o Docker funciona?**
+    
+A tecnologia Docker usa o kernel do Linux e recursos do kernel como Cgroups e namespaces para segregar processos. Assim, eles podem ser executados de maneira independente. O objetivo dos containers é criar essa independência: a habilidade de executar diversos processos e aplicações separadamente para utilizar melhor a infraestrutura e, ao mesmo tempo, manter a segurança que você teria em sistemas separados.
+    
+<h1>
+    <h1 align="center">
+    <img src="https://www.redhat.com/cms/managed-files/traditional-linux-containers-vs-docker_0.png">
+</h1>
+    
+**Links**
+    
+* https://docs.docker.com/
+* https://docker.com/
+* https://docs.docker.com/engine/install/debian/
+* https://hub.ocker.com/
+    
+**Curiosidades**
+    
+* Docker Engine: principal tecnologia, intermédio entre o S.O e os containers
+* Docker Compose: orquestração de múltiplos containers
+* Docker Swarm: Clusters de Docker Engine
+* Docker Hub: Repositório de Imagens Docker
+* Docker Machine: Permite gerenciar o Docker em um host virtual
     
 ## Cursos realizados neste semestre
 
@@ -147,3 +184,10 @@ Site | Curso
 [SENAI - EAD](https://ead.sp.senai.br/) | Desvendando a Indústria 4.0
 [SENAI - EAD](https://ead.sp.senai.br/) | Desvendando a Blockchain
    
+**VMs já utilizadas**
+    
+* https://drive.google.com/drive/folders/1WeSn9JFeWt2TIryZKvPJqJSg73haicE8
+
+**Plataforma utilizada para o desenvolvimento dos scripts e documentações:**
+
+* VisualStudio - https://visualstudio.microsoft.com/pt-br/
